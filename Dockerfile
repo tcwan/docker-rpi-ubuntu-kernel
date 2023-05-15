@@ -1,4 +1,5 @@
-FROM ubuntu:focal
+# Modified from https://github.com/carlonluca/docker-rpi-ubuntu-kernel
+FROM ubuntu:22.04
 ENTRYPOINT ["/bin/bash", "-l", "-c"]
 WORKDIR /root
 

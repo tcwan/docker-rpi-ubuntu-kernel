@@ -1,6 +1,9 @@
 # docker-rpi-ubuntu-kernel
 
-Image to cross-build the Ubuntu kernel for the Raspberry Pi 4. The image contains all the needed tools here: https://hub.docker.com/repository/docker/carlonluca/docker-rpi-ubuntu-kernel.
+Modified from https://github.com/carlonluca/docker-rpi-ubuntu-kernel
+Updated for Jammy (22.04)
+
+Image to cross-build the Ubuntu kernel for the Raspberry Pi 4. The image contains all the needed tools here: https://hub.docker.com/repository/docker/tcwan/docker-rpi-ubuntu-kernel/
 
 ## Usage
 
@@ -9,7 +12,7 @@ From the host:
 ```
 mkdir workspace
 cd workspace
-git clone https://git.launchpad.net/~ubuntu-kernel/ubuntu/+source/linux-raspi/+git/hirsute src
+git clone https://git.launchpad.net/~ubuntu-kernel/ubuntu/+source/linux-raspi/+git/jammy src
 [apply needed patches]
 ```
 
@@ -17,7 +20,7 @@ Now you can build the kernel by running the script in the container:
 
 ```
 docker run --rm -it --name builder -v $PWD/workspace:/workspace \
-    -v $PWD/build.sh:/build.sh carlonluca/docker-rpi-ubuntu-kernel:focal \
+    -v $PWD/build.sh:/build.sh tcwan/docker-rpi-ubuntu-kernel:22.04-x86_64 \
     /build.sh
 ```
 
