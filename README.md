@@ -1,7 +1,7 @@
 # docker-rpi-ubuntu-kernel
 
 Modified from https://github.com/carlonluca/docker-rpi-ubuntu-kernel
-Updated for Jammy (22.04)
+Updated for Jammy (22.04), added qemu-user-binfmt needed by WSL2 when cross-building kernel modules
 
 Image to cross-build the Ubuntu kernel for the Raspberry Pi 4. The image contains all the needed tools here: https://hub.docker.com/repository/docker/tcwan/docker-rpi-ubuntu-kernel/
 
