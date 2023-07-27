@@ -16,6 +16,8 @@ git clone https://git.launchpad.net/~ubuntu-kernel/ubuntu/+source/linux-raspi/+g
 [apply needed patches]
 ```
 
+If you would like to modify the kernel configuration, uncomment the line in the build.sh script ending with 'editconfigs' 
+
 Now you can build the kernel by running the script in the container:
 
 ```
@@ -23,8 +25,9 @@ docker run --rm -it --name builder -v $PWD/workspace:/workspace \
     -v $PWD/build.sh:/build.sh tcwan/docker-rpi-ubuntu-kernel:22.04-x86_64 \
     /build.sh
 ```
+If you enabled 'editconfigs', the script will prompt you whether to modify the configuration for all available configs, including for aarch64.
 
-in workspace/out you should get the packages to install in your pi:
+If you managed to build the kernel successfully, in workspace/out you should get the packages to install in your pi:
 
 ```
 $ ls -lh workspace/out/
