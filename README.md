@@ -5,7 +5,7 @@ Updated for Noble (24.04), added qemu-user-binfmt and other debugging tools need
 by WSL2 when cross-building kernel modules.
 
 Image to cross-build the Ubuntu kernel for the Raspberry Pi 5. 
-The image contains all the needed tools here: https://hub.docker.com/repository/docker/tcwan/docker-rpi-ubuntu-kernel/
+The image contains all the needed tools here: https://hub.docker.com/r/tcwan/docker-rpi-ubuntu-24.04-kernel/
 
 ## Usage
 
