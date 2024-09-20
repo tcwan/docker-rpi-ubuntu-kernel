@@ -8,5 +8,5 @@ export $(dpkg-architecture -aarm64); export CROSS_COMPILE=aarch64-linux-gnu-
 fakeroot debian/rules clean
 #fakeroot debian/rules editconfigs
 fakeroot debian/rules binary-headers binary binary-perarch
-mv ../*.deb ../out/
+mv ../*.deb /workspace/out/
 echo "Done ;-)"
