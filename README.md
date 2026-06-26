@@ -1,11 +1,11 @@
 # docker-rpi-ubuntu-kernel
 
 Modified from https://github.com/carlonluca/docker-rpi-ubuntu-kernel
-Updated for Noble (24.04), added qemu-user-binfmt and other debugging tools needed 
+Updated for Resolute (26.04), added qemu-user-binfmt and other debugging tools needed 
 by WSL2 when cross-building kernel modules.
 
 Image to cross-build the Ubuntu kernel for the Raspberry Pi 5. 
-The image contains all the needed tools here: https://hub.docker.com/r/tcwan/docker-rpi-ubuntu-24.04-kernel/
+The image contains all the needed tools here: https://hub.docker.com/r/tcwan/docker-rpi-ubuntu-26.04-kernel/
 
 ## Usage
 
@@ -13,17 +13,17 @@ From the host:
 
 ```
 $ export PLATFORM=<amd64 | arm64>
-$ docker pull tcwan/docker-rpi-ubuntu-24.04-kernel:$PLATFORM
+$ docker pull tcwan/docker-rpi-ubuntu-26.04-kernel:$PLATFORM
 $ cd <docker-rpi-ubuntu-kernel-gitrepo/path>
 $ docker run --rm -it --name builder -v $PWD:/workspace \
-    tcwan/docker-rpi-ubuntu-24.04-kernel:$PLATFORM /bin/bash
+    tcwan/docker-rpi-ubuntu-26.04-kernel:$PLATFORM /bin/bash
 ```
 
 From inside the running docker container:
 
 ```
 # cd /usr/src
-# git clone https://git.launchpad.net/~ubuntu-kernel/ubuntu/+source/linux-raspi/+git/noble linux
+# git clone https://git.launchpad.net/~ubuntu-kernel/ubuntu/+source/linux-raspi/+git/resolute linux
 # git checkout master-next   # Needed for RPi5 latest kernels
 [apply needed patches]
 # cd /workspace; ln –s /usr/src/linux src
@@ -44,6 +44,7 @@ If you enabled 'editconfigs', the script will prompt you whether to modify the c
 If you managed to build the kernel successfully, in workspace/out you should get the packages to install in your pi:
 
 ```
+[This packages list was for 24.04]
 # ls -lh /workspace/out
 total 156M
 -rw-r--r-- 1 root root 1.5M Sep 20 02:40 linux-buildinfo-6.8.0-1010-raspi_6.8.0-1010.11_arm64.deb

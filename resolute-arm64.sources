@@ -31,7 +31,7 @@
 Types: deb deb-src
 Architectures: arm64
 URIs: http://ports.ubuntu.com/ubuntu-ports
-Suites: noble noble-updates noble-backports
+Suites: resolute resolute-updates resolute-backports
 Components: main universe restricted multiverse
 Signed-By: /usr/share/keyrings/ubuntu-archive-keyring.gpg
 
@@ -40,6 +40,6 @@ Signed-By: /usr/share/keyrings/ubuntu-archive-keyring.gpg
 Types: deb deb-src
 Architectures: arm64
 URIs: http://ports.ubuntu.com/ubuntu-ports
-Suites: noble-security
+Suites: resolute-security
 Components: main universe restricted multiverse
 Signed-By: /usr/share/keyrings/ubuntu-archive-keyring.gpg
