@@ -10,9 +10,10 @@ fakeroot debian/rules clean
 # To modify Kernel configs, uncomment the editconfigs line
 #fakeroot debian/rules editconfigs
 
-# To generate dbgsyms, set skipdbg=false
-#fakeroot debian/rules binary-headers binary binary-perarch skipdbg=false
-fakeroot debian/rules binary-headers binary binary-perarch
+# To generate dbgsyms, set do_full_build=true
+# This will also generate source packages. The generated files are huge!
+#fakeroot debian/rules binary-headers binary binary-perarch do_full_build=true
+fakeroot debian/rules binary-headers binary binary-perarch 
 
-mv ../*.deb /workspace/out/
+mv ../*deb /workspace/out/
 echo "Done ;-)"

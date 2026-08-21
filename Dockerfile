@@ -15,11 +15,23 @@ RUN \
     apt-get -y install fakeroot build-essential kexec-tools \
     kernel-wedge gcc-aarch64-linux-gnu libncurses6 libncurses-dev libelf-dev \
     asciidoc binutils-dev qemu-user-binfmt usbutils iputils-ping psmisc screen \
-    git openssh-client gdb-multiarch vim telnet && \
+    git openssh-client openssh-server gdb-multiarch openocd vim file telnet && \
     apt-get -y build-dep linux && \
     dpkg --add-architecture arm64
+# Needed for Kernel 7.0.0 builds
+RUN \
+    apt-get -y update && \
+    apt-get -y install libudev-dev:arm64 libpci-dev:arm64
 RUN \
     apt-get -y autoremove && \
     apt-get -y autoclean && \
     apt-get -y clean && \
     rm -rf /var/lib/apt/lists/*
+RUN \
+    cd /root && \
+    git clone http://git.kernel.org/pub/scm/utils/kernel/kgdb/agent-proxy.git agent-proxy.git && \
+    cd agent-proxy.git && \
+    make clean; make all && \
+    mv agent-proxy /root && \
+    rm -rf /root/agent-proxy.git
+
